@@ -1,10 +1,13 @@
 describe('template spec', () => {
 
   beforeEach(() => {
+    
     cy.intercept('POST', 'https://dashing-kiwi-64.hasura.app/v1/graphql').as('projects')
+    cy.visit(Cypress.config('baseUrl'))
+    // cy.log(Cypress.env('baseUrl'))
   })
   it('loads correctly', () => {
-    cy.visit(Cypress.config().baseUrl)
+    
 
     cy.wait('@projects').then(interception => {
       cy.log(interception.response.body)
