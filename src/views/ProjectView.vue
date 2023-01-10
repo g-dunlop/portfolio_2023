@@ -2,6 +2,7 @@
   import axios from 'axios';
   import { onMounted, ref } from 'vue';
   import Loading from '../components/UI/Loading.vue'
+  import {useProjectsStore} from '@/stores/projects'
   const hasura = import.meta.env.VITE_X_HASURA_ADMIN_SECRET;
   const apiUrl = import.meta.env.VITE_HASURA_ENDPOINT;
   
@@ -10,12 +11,22 @@ components:{
   Loading,
 },
   setup(){
-    
+    //get project from store.  They are already loaded in
     let project = ref()
     let loading = ref()
+    const store = useProjectsStore()
     async function fetch() {
       this.loading=true
     try {
+    //   console.log(this.$route.params.id)
+    //   const result = await(store.getProjectById(this.$route.params.id))
+    //   console.log(result)
+    //   this.project = result[0]
+    // } catch (error) {
+    //   console.error(error)
+    // } 
+    // this.loading = false
+
       const result = await axios({
         method:"POST",
         url:apiUrl,
@@ -26,7 +37,7 @@ components:{
         data: {
           query:`
             query getProject {
-              projects(where: {id: {_eq: 3}}) {
+              projects(where: {id: {_eq: ${this.$route.params.id}}}) {
                 date
                 description_short
                 id
@@ -76,7 +87,7 @@ components:{
       <h2>{{ project.name }}</h2>
       <p>{{ project.description_short }}</p>
       <p>{{project.purpose}}</p>
-      <div class="w-5/10" v-html="project.read_me_html" ></div>
+      <div class="w-5/10" v-html="project.read_me_html"></div>
     </div>
   </div>
 </template>

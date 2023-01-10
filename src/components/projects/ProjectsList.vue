@@ -5,20 +5,20 @@
                 <h1>{{ project.name }}</h1>
             </div> -->
 
-            <div class="flex">
-                <div v-for="project in projects" class="card w-96 glass px-6">
+            <div class="lg:flex w-100/100 justify-center py-8 bg-rose-700 md:grid-cols-1 sm:grid-cols-1">
+                <div v-for="project in projects" class=" card lg:w-30/100 md:w80/100 sm:w-80/100 mx-6 bg-white border-gray-500">
                     <figure><img src="https://placeimg.com/400/225/arch" alt="car!"/></figure>
-                    <div class="card-body">
+                    <div class="card-body bg-white rounded-xl">
                         <div class="flex justify-between">
                             <h2 class="card-title">{{project.name}}</h2>
-                            <span class="badge badge-lg text-xs">{{project.date}}</span>
+                            <span class="badge badge-lg text-xs bg-emerald-800">{{project.date}}</span>
                         </div>
                         <p class="font-extralight">{{ project.description_short }}</p>
                         <ul class="">
-                            <li class="text-xs tracking-widest badge ml-2" v-for="tool in project.tools">{{ tool }}</li>
+                            <li class="text-xs tracking-widest badge bg-red-500 ml-2" v-for="tool in project.tools">{{ tool }}</li>
                         </ul>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary">ReadMe!</button>
+                            <button class="btn btn-primary" @click="navigate(project.id)">ReadMe!</button>
                         </div>
                     </div>
                 </div>
@@ -63,13 +63,20 @@ setup() {
     store.fetchProjects()
     
     
+    
 }
 return {
-    projects: computed(() => store.projects), fetch
+    projects: computed(() => store.projects), fetch,
 }
 },
 mounted() {
     this.fetch()
+},
+methods:{
+    navigate (id) {
+        console.log(id)
+        this.$router.push(`/projects/${id}`)
+    }
 }
 }
 </script>

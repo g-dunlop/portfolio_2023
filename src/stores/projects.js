@@ -8,6 +8,13 @@ export const useProjectsStore = defineStore('projects', () => {
     // other options...
     const projects = ref([])
 
+    async function getProjectById (id) {
+        console.log('getProjectsById', id)
+        const project =  this.projects.filter(project => project.id == id)
+        console.log(project)
+        return project
+    }
+
     async function fetchProjects () {
         try {
             const result = await axios({
@@ -21,6 +28,7 @@ export const useProjectsStore = defineStore('projects', () => {
                     query:`
                         query getAllProjects {
                             projects {
+                                id
                                 date
                                 description_short
                                 name
@@ -38,5 +46,5 @@ export const useProjectsStore = defineStore('projects', () => {
         }
     }
 
-    return {projects, fetchProjects}
+    return {projects, fetchProjects, getProjectById}
   })

@@ -21,7 +21,7 @@ import Footer from './components/UI/Footer.vue'
   <div class="h-90vh">
   <RouterView />
   </div>
-  <Footer />
+  <!-- <Footer /> -->
 </template>
 
 <style scoped>
