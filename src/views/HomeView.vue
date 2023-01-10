@@ -4,7 +4,6 @@ import ProjectsList from '../components/projects/ProjectsList.vue';
 
 <template>
   <main>
-    Welcome Page
     <ProjectsList />
   </main>
 </template>

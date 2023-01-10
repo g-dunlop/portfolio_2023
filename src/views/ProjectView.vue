@@ -83,11 +83,21 @@ components:{
     </div>
    
 
-    <div v-if="project">
+    <div v-if="project" class="flex w-10/10 justify-center">
+      <div class="w-8/10">
       <h2>{{ project.name }}</h2>
       <p>{{ project.description_short }}</p>
       <p>{{project.purpose}}</p>
-      <div class="w-5/10" v-html="project.read_me_html"></div>
+      <div class="w-10/10" v-html="project.read_me_html"></div>
+
+    </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+p{
+  /* font-weight:bold; */
+}
+
+</style>
