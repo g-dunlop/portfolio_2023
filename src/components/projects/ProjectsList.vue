@@ -56,6 +56,7 @@ setup() {
     // let projects = ref(store.projects)
     async function fetch() {
     console.log('component fetch function')
+    console.log(store)
     store.fetchProjects()
     
     
