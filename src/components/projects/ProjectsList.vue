@@ -1,20 +1,20 @@
 <template>
     <!-- make card component -->
     <div>
-            <div class="lg:flex w-100/100 justify-center py-8 bg-slate-100 md:grid-cols-1 sm:grid-cols-1 h-10/10">
-                <div v-for="project in projects" class="h-5/10 card lg:w-30/100 md:w80/100 sm:w-80/100 mb-6 lg:mb-0 mx-6 bg-white border-gray-500">
-                    <figure class="w-10/10"><img class="w-10/10" src="https://placeimg.com/400/225/arch" alt="car!"/></figure>
-                    <div class="card-body bg-white rounded-xl">
+            <div class="lg:flex w-100/100 justify-center py-8 bg-slate-100 md:grid-cols-1 sm:grid-cols-1">
+                <div v-for="project in projects" class="h-35rem card lg:w-30/100 md:w80/100 sm:w-80/100 mb-6 lg:mb-0 mx-6 bg-white shadow-2xl">
+                    <figure class="w-10/10"><img class="w-10/10 h-15rem" :src="project.thumbnail_url" alt="car!"/></figure>
+                    <div class="card-body bg-white rounded-xl h-20rem">
                         <div class="flex justify-between">
                             <h2 class="card-title">{{project.name}}</h2>
                             <span class="badge badge-lg text-xs bg-red-500">{{project.date}}</span>
                         </div>
-                        <p class="font-extralight text-s">{{ project.description_short }}</p>
-                        <ul class="">
+                        <p class="font-extralight text-s h-50px">{{ project.description_short }}</p>
+                        <ul class="h-50px">
                             <li class="text-xs tracking-widest badge bg-black m-1" v-for="tool in project.tools">{{ tool }}</li>
                         </ul>
-                        <div class="card-actions justify-end">
-                            <button class="btn btn-primary" @click="navigate(project.id)">ReadMe!</button>
+                        <div class="card-actions justify-end mt-5">
+                            <button class="btn btn-primary btn-sm" @click="navigate(project.id)">ReadMe!</button>
                         </div>
                     </div>
                 </div>

@@ -85,9 +85,9 @@ components:{
 
     <div v-if="project" class="flex w-10/10 justify-center">
       <div class="w-8/10">
-      <h2>{{ project.name }}</h2>
-      <p>{{ project.description_short }}</p>
-      <p>{{project.purpose}}</p>
+      <h2 class="header">{{ project.name }}</h2>
+      <p class="p">{{ project.description_short }}</p>
+      <p class="p">{{project.purpose}}</p>
       <div class="w-10/10" v-html="project.read_me_html"></div>
 
     </div>
@@ -95,9 +95,28 @@ components:{
   </div>
 </template>
 
-<style scoped>
-p{
+<style>
+.header{
+  font-weight:bold;
+  font-size:2em;
+}
+.h2{
+  font-weight:bold;
+  margin:8px;
   /* font-weight:bold; */
 }
+.p{
+  margin:8px;
+}
+.ul{
+  margin-top:4px;
+  padding-left:2em;
+  list-style-type:circle;
+}
+.img{
+  width:200px;
+  height:130px;
+}
+
 
 </style>

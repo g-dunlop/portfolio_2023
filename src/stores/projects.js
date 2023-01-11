@@ -34,6 +34,7 @@ export const useProjectsStore = defineStore('projects', () => {
                                 name
                                 purpose
                                 tools
+                                thumbnail_url
                             }
                             }
                         `
