@@ -1,8 +1,8 @@
 <template>
     <!-- make card component -->
     <div>
-            <div class="lg:flex w-100/100 justify-center py-8 bg-slate-100 md:grid-cols-1 sm:grid-cols-1">
-                <div v-for="project in projects" class="h-35rem card lg:w-30/100 md:w80/100 sm:w-80/100 mb-6 lg:mb-0 mx-6 bg-white shadow-2xl">
+            <div class="lg:flex flex-wrap w-100/100 justify-center  py-8 bg-slate-100 md:grid-cols-1 sm:grid-cols-1">
+                <div v-for="project in projects" class="h-35rem card lg:w-30/100 md:w80/100 sm:w-80/100 mb-6  mx-6 bg-white shadow-2xl">
                     <figure class="w-10/10"><img class="w-10/10 h-15rem" :src="project.thumbnail_url" alt="car!"/></figure>
                     <div class="card-body bg-white rounded-xl h-20rem">
                         <div class="flex justify-between">
