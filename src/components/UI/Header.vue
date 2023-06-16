@@ -33,10 +33,10 @@
         <RouterLink to="/login" class="btn">Login</RouterLink>
     </div>
     <ul tabindex="0" v-if="checked" class="absolute right-0 top-13 mt-3 p-2 shadow bg-base-100 w-10/10 text-center">
-        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('home')"><RouterLink to="/" class="w-10/10 hover:bg-neutral hover:text-white" >HomePage</RouterLink></li>
-        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('cv')"><RouterLink to="/cv" >CV</RouterLink></li>
-        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('about')"><RouterLink to="/about" >About</RouterLink></li>
-        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('blog')"><RouterLink to="/blog" >Blog</RouterLink></li>
+        <RouterLink to="/" class="w-10/10 hover:bg-neutral hover:text-white" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('home')">HomePage</li></RouterLink>
+        <RouterLink to="/cv" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('cv')">CV</li></RouterLink>
+        <RouterLink to="/about" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('about')">About</li></RouterLink>
+        <RouterLink to="/blog" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('blog')">Blog</li></RouterLink>
     </ul>
 </template>
 
@@ -61,7 +61,7 @@ const setActive = (name) => {
             console.log('match', name, activeLink.value[name])
         }
     }
-    checked.value = !checked.value
+    checked.value = false
 }
 const setChecked = () => {
     checked.value = !checked.value

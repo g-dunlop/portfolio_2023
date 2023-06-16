@@ -26,8 +26,10 @@
                 <h2 class="text-center font-bold text-3xl mb-4">Projects</h2>
             <div class="carousel w-10/10 " >
                 <div :id="index+1" class="carousel-item w-full bg-gray-100 rounded-lg" v-for="project, index in projects">
-                    <div class="flex flex-col lg:flex-row p-2 items-center">
-                    <figure class="w-10/10 h-full rounded px-2 cursor-pointer" @click="navigate(project.id)"><img class="w-auto rounded" :src="project.thumbnail_url" alt="car!"/></figure>
+                    <div class="w-full flex flex-col lg:flex-row p-2 items-center">
+                    <figure class="w-10/10 h-full rounded cursor-pointer" @click="navigate(project.id)">
+                        <iframe class="w-full h-80"  :src="project.video_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+                    </figure>
                     <div class="w-10/10 lg:w-8/10 p-8 h-full bg-white rounded ">
                         <div class="flex justify-between">
                             <h2 class="card-title">{{project.name}}</h2>
