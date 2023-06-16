@@ -1,19 +1,20 @@
 <template>
     <!-- make card component -->
     <div>
-            <div class="lg:flex flex-wrap w-100/100 justify-center  py-8 bg-slate-100 md:grid-cols-1 sm:grid-cols-1">
-                <div v-for="project in projects" class="h-35rem card lg:w-30/100 md:w80/100 sm:w-80/100 mb-6  mx-6 bg-white shadow-2xl">
-                    <figure class="w-10/10"><img class="w-10/10 h-15rem" :src="project.thumbnail_url" alt="car!"/></figure>
-                    <div class="card-body bg-white rounded-xl h-20rem">
+            <div class="lg:flex flex-wrap w-100/100 justify-center  py-8 bg-slate-100">
+                <div v-for="project in projects" class=" card card-compact lg:w-1/3 md:w90/100 sm:w-90/100 mb-6  mx-6 bg-white shadow-2xl">
+                    <figure class="w-10/10 h-15rem"><img class="w-10/10 h-15rem" :src="project.thumbnail_url" alt="car!"/></figure>
+                    <div class="card-body bg-white rounded-xl h-15rem">
                         <div class="flex justify-between">
                             <h2 class="card-title">{{project.name}}</h2>
+                            <hr />
                             <span class="badge badge-lg text-xs bg-red-500">{{project.date}}</span>
                         </div>
                         <p class="font-extralight text-s h-50px">{{ project.description_short }}</p>
                         <ul class="h-50px">
                             <li class="text-xs tracking-widest badge bg-black m-1" v-for="tool in project.tools">{{ tool }}</li>
                         </ul>
-                        <div class="card-actions justify-end mt-5">
+                        <div class="card-actions justify-end">
                             <button class="btn btn-primary btn-sm" @click="navigate(project.id)">ReadMe!</button>
                         </div>
                     </div>

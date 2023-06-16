@@ -30,6 +30,7 @@
                     <li><a><RouterLink to="/" @click="setActive('home')">HomePage</RouterLink></a></li>
                     <li><a><RouterLink to="/cv"  @click="setActive('cv')">CV</RouterLink></a></li>
                     <li><a><RouterLink to="/about"  @click="setActive('about')">About</RouterLink></a></li>
+                    <li><a><RouterLink to="/blog"  @click="setActive('blog')">Blog</RouterLink></a></li>
                     
                 </ul>
             </div>
