@@ -7,6 +7,7 @@
         <nav class="w-7/10 hidden md:flex lg:flex justify-end">
             <RouterLink class="link mx-2" to="/cv" :class="{active:activeLink.cv}" @click="setActive('cv')">CV</RouterLink>
             <RouterLink class="link mx-2" to="/about"  :class="{active:activeLink.about}" @click="setActive('about')">About</RouterLink>
+            <RouterLink class="link mx-2" to="/blog"  :class="{active:activeLink.blog}" @click="setActive('blog')">Blog</RouterLink>
         </nav>
 
         <nav class="lg:hidden md:hidden sm:flex">
@@ -16,27 +17,27 @@
                 </label> -->
                 <label class="btn btn-circle swap swap-rotate">
   
-   <!--this hidden checkbox controls the state -->
-  <input type="checkbox" :checked="checked" @click="setChecked" />
+                <!--this hidden checkbox controls the state -->
+                <input type="checkbox" :checked="checked" @click="setChecked" />
+            
+                <!-- hamburger icon -->
+                <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
+            
+                <!-- close icon -->
+                <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
   
-    <!-- hamburger icon -->
-    <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
-  
-    <!-- close icon -->
-    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
-  
-</label>
-                <ul tabindex="0" v-if="checked" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a><RouterLink to="/" @click="setActive('home')">HomePage</RouterLink></a></li>
-                    <li><a><RouterLink to="/cv"  @click="setActive('cv')">CV</RouterLink></a></li>
-                    <li><a><RouterLink to="/about"  @click="setActive('about')">About</RouterLink></a></li>
-                    <li><a><RouterLink to="/blog"  @click="setActive('blog')">Blog</RouterLink></a></li>
-                    
-                </ul>
+                </label>
+                
             </div>
         </nav>
         <RouterLink to="/login" class="btn">Login</RouterLink>
     </div>
+    <ul tabindex="0" v-if="checked" class="absolute right-0 top-13 mt-3 p-2 shadow bg-base-100 w-10/10 text-center">
+        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('home')"><RouterLink to="/" class="w-10/10 hover:bg-neutral hover:text-white" >HomePage</RouterLink></li>
+        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('cv')"><RouterLink to="/cv" >CV</RouterLink></li>
+        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('about')"><RouterLink to="/about" >About</RouterLink></li>
+        <li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('blog')"><RouterLink to="/blog" >Blog</RouterLink></li>
+    </ul>
 </template>
 
 <script setup>
@@ -46,7 +47,8 @@ import {ref} from 'vue'
 const activeLink = ref({
     about:false,
     cv:false,
-    home:true
+    home:true,
+    blog:false
 })
 const checked = ref(false)
 const setActive = (name) => {
@@ -59,6 +61,7 @@ const setActive = (name) => {
             console.log('match', name, activeLink.value[name])
         }
     }
+    checked.value = !checked.value
 }
 const setChecked = () => {
     checked.value = !checked.value
