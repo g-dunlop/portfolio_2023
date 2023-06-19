@@ -20,9 +20,10 @@
 
 import { onMounted, ref, reactive, computed, defineAsyncComponent } from 'vue';
 import {useProjectsStore} from '@/stores/projects'
+import Loading from '../UI/Loading.vue'
 const ProjectsListItem = defineAsyncComponent(() => 
 import ('./ProjectsListItem.vue'))
-import Loading from '../UI/Loading.vue'
+
 
 export default{
     components:{
@@ -50,7 +51,7 @@ setup() {
 
     }
 return {
-    projects: computed(() => store.projects), fetch, isActive, setActive
+    projects: computed(() => store.projects), fetch, isActive, setActive, Loading
 }
 },
 mounted() {

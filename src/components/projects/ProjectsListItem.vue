@@ -1,7 +1,7 @@
 <template>
     <div :id="index+1" class="carousel-item w-full bg-gray-300 rounded-lg" v-for="project, index in projects">
         <div class="w-full flex flex-col lg:flex-row p-2 items-center">
-            <figure class="w-10/10 h-full rounded cursor-pointer" @click="navigate(project.id)">
+            <figure class="w-10/10 h-full rounded cursor-pointer">
                 <iframe class="w-full h-80"  :src="project.video_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
             </figure>
             <div class="w-10/10 lg:w-8/10 p-8 h-full bg-white rounded ">
