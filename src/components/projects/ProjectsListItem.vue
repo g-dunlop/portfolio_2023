@@ -1,5 +1,5 @@
 <template>
-    <div :id="index+1" class="carousel-item w-full bg-gray-100 rounded-lg" v-for="project, index in projects">
+    <div :id="index+1" class="carousel-item w-full bg-gray-300 rounded-lg" v-for="project, index in projects">
         <div class="w-full flex flex-col lg:flex-row p-2 items-center">
             <figure class="w-10/10 h-full rounded cursor-pointer" @click="navigate(project.id)">
                 <iframe class="w-full h-80"  :src="project.video_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
@@ -7,13 +7,13 @@
             <div class="w-10/10 lg:w-8/10 p-8 h-full bg-white rounded ">
                 <div class="flex justify-between">
                     <h2 class="card-title">{{project.name}}</h2>
-                    <span class="badge badge-lg border-0 text-sm bg-gray-500">{{project.date}}</span>
+                    <span class="badge badge-lg border-0 text-sm bg-red-600">{{project.date}}</span>
                 </div>
                 <p class="font-extralight text-s py-4">{{ project.description_short }}</p>
                 <ul class="py-4">
-                    <li class="text-xs tracking-widest badge bg-blue-800 m-1" v-for="tool in project.tools"><p class="">{{ tool }}</p></li>
+                    <li class="text-xs tracking-widest badge border-0 bg-stone-800 m-1" v-for="tool in project.tools"><p class="">{{ tool }}</p></li>
                 </ul>
-                <div class="card-actions justify-end">
+                <div class="card-actions justify-end pt-8">
                     <button class="btn btn-sm" @click="navigate(project.id)">ReadMe!</button>
                 </div>
             </div>
