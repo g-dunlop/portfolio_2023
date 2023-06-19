@@ -4,7 +4,7 @@
         <div v-if="blogs.length === 0">
             <Loading />
         </div>
-        <div v-for="blog, index in blogs" class="p-2" :class="[index % 2 === 1 ? 'w-9/9 md:w-4/8': 'w-9/9 md:w-2/8']" >
+        <div v-for="blog, index in blogs" class="p-4" :class="[index % 2 === 1 ? 'w-9/9 md:w-4/8': 'w-9/9 md:w-2/8']" >
             <BlogCard :blog="blog" />
         </div>
     </div>
