@@ -10,6 +10,7 @@ import ('../components/projects/ProjectsList.vue'))
 <template>
   <main>
     <Hero />
+    
     <ProjectsList />
   </main>
 </template>
