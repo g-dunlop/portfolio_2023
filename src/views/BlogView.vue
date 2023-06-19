@@ -1,6 +1,12 @@
 <template>
-    <div >
-      Blog page
+    <div class="w-full">
+      
+      <div class="flex mx-8 justify-evenly items-center">
+        <p>search</p>
+        <h1 class="header">Blog</h1>
+        <p>filter</p>
+      </div>
+
     </div>
   </template>
   
