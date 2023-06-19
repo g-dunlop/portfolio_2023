@@ -138,8 +138,10 @@ components:{
   list-style-type:circle;
 }
 .img{
-  width:200px;
-  height:130px;
+  min-width:240px;
+  max-width:360px;
+  min-height:auto;
+  cursor: pointer;
 }
 
 .section {
@@ -151,17 +153,15 @@ components:{
 }
 .tr {
   display:flex;
-  justify-content:center;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
 }
 
-.td {
-  width:30%;
-}
 
-.img {
+/* .img {
   width:100%;
-  cursor: pointer;
-}
+  
+} */
 
 
 </style>
