@@ -24,8 +24,12 @@
             <!-- use tiny slider for this? -->
             <div class="h-screen pt-8 px-8">
                 <h2 class="text-center font-bold text-3xl mb-4">Projects</h2>
-            <div class="carousel w-10/10 " >
-                <div :id="index+1" class="carousel-item w-full bg-gray-100 rounded-lg" v-for="project, index in projects">
+                <div class="w-full flex justify-center" v-if="!projects">
+                    <Loading />
+                </div>
+            <div class="carousel w-10/10 " v-if="projects" >
+                <ProjectsListItem :projects="projects" />
+                <!-- <div :id="index+1" class="carousel-item w-full bg-gray-100 rounded-lg" v-for="project, index in projects">
                     <div class="w-full flex flex-col lg:flex-row p-2 items-center">
                     <figure class="w-10/10 h-full rounded cursor-pointer" @click="navigate(project.id)">
                         <iframe class="w-full h-80"  :src="project.video_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
@@ -33,18 +37,18 @@
                     <div class="w-10/10 lg:w-8/10 p-8 h-full bg-white rounded ">
                         <div class="flex justify-between">
                             <h2 class="card-title">{{project.name}}</h2>
-                            <span class="badge badge-lg text-xs bg-red-500">{{project.date}}</span>
+                            <span class="badge badge-lg border-0 text-sm bg-gray-500">{{project.date}}</span>
                         </div>
                         <p class="font-extralight text-s py-4">{{ project.description_short }}</p>
                         <ul class="py-4">
-                            <li class="text-xs tracking-widest badge bg-black m-1" v-for="tool in project.tools">{{ tool }}</li>
+                            <li class="text-xs tracking-widest badge bg-blue-800 m-1" v-for="tool in project.tools"><p class="">{{ tool }}</p></li>
                         </ul>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary btn-sm" @click="navigate(project.id)">ReadMe!</button>
+                            <button class="btn btn-sm" @click="navigate(project.id)">ReadMe!</button>
                         </div>
                     </div>
                 </div>
-                </div>
+                </div> -->
                 
             </div> 
             <div class="flex justify-center w-10/10 py-4 gap-2">
@@ -56,10 +60,16 @@
 
 <script>
 
-import { onMounted, ref, reactive, computed } from 'vue';
+import { onMounted, ref, reactive, computed, defineAsyncComponent } from 'vue';
 import {useProjectsStore} from '@/stores/projects'
+const ProjectsListItem = defineAsyncComponent(() => 
+import ('./ProjectsListItem.vue'))
+import Loading from '../UI/Loading.vue'
 
 export default{
+    components:{
+        Loading, ProjectsListItem
+    },
 setup() {
     const store = useProjectsStore()
     const isActive = reactive({
