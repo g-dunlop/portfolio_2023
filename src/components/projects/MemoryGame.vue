@@ -106,7 +106,7 @@
                 <li class="li">Plan!  At least do some wireframing for a small personal project.</li>   
                 <li class="li">Maybe by the time anybody reads this, I'll have learned how to use authentication to stop duplicate names entering the database.</li>   
                 <li class="li">If I get time, I'd like to add a 'High Scores' section so the user can see how they compare to the top scores.</li> 
-            </ul> 
+            </ul>  
         </section>
     </div>
 </template>
