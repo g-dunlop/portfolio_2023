@@ -127,7 +127,6 @@ body, html {
 
       p {
         animation: secFadeIn 2s forwards;
-        
         animation-delay: 3.2s;
         opacity: 0;
          font-weight: 400;

@@ -7,13 +7,44 @@ import axios from 'axios';
 export const useBlogStore = defineStore('blog', () => {
     // other options...
     const blogs = ref([])
+    const blog = ref(null)
 
     async function getBlogById (id) {
-        console.log('getBlogById', id)
-        const blog =  this.blogs.filter(blog => blog.id == id)
-        console.log(blog)
-        return blog
-    }
+        try{
+        const result = await axios({
+            method:"POST",
+            url:apiUrl,
+            headers:{
+              "content-type": "application/json",
+              "x-hasura-admin-secret": hasura
+            },
+            data: {
+                query:`
+                query getBlogPost {
+                    blog_posts(where: {id: {_eq: ${id}}}) {
+                        id
+                            title
+                            content
+                            created_at
+                            updated_at
+                            id
+                            tagline
+                            tags
+                            thumbnail
+                            user {
+                            username
+                        }
+                    }
+                }
+    `
+        
+            }})
+            console.log(result.data.data.blog_posts)
+            this.blog = result.data.data.blog_posts[0]
+        } catch (error) {
+            console.error(error)
+        }
+        }
 
     async function fetchBlogs () {
         try {
@@ -30,9 +61,7 @@ export const useBlogStore = defineStore('blog', () => {
                             blog_posts {
                                 id
                                 title
-                                content
                                 created_at
-                                updated_at
                                 id
                                 tagline
                                 tags
@@ -52,5 +81,5 @@ export const useBlogStore = defineStore('blog', () => {
         }
     }
 
-    return {blogs, fetchBlogs, getBlogById}
+    return {blog, blogs, fetchBlogs, getBlogById}
   })
