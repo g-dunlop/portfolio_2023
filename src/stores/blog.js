@@ -23,16 +23,32 @@ export const useBlogStore = defineStore('blog', () => {
                 query getBlogPost {
                     blog_posts(where: {id: {_eq: ${id}}}) {
                         id
-                            title
-                            content
-                            created_at
-                            updated_at
-                            id
-                            tagline
-                            tags
-                            thumbnail
-                            user {
+                        title
+                        content
+                        created_at
+                        updated_at
+                        id
+                        tagline
+                        tags
+                        thumbnail
+                        user {
                             username
+                        }
+                        comments(where: {comment_repliedto_id: {_is_null: true}}) {
+                            blog_post_id
+                            comment
+                            comment_repliedto_id
+                            created_at
+                            id
+                            updated_at
+                            replies {
+                              id
+                              created_at
+                              comment_repliedto_id
+                              comment
+                              blog_post_id
+                              updated_at
+                            }
                         }
                     }
                 }

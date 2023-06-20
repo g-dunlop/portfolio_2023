@@ -32,7 +32,7 @@
         </nav>
         <RouterLink to="/login" class="btn btn-sm lg:flex md:flex hidden">Login</RouterLink>
     </div>
-    <ul tabindex="0" v-if="checked" class="absolute right-0 top-13 mt-3 p-2 shadow bg-base-100 w-10/10 text-center">
+    <ul tabindex="0" v-if="checked" class="absolute right-0 top-13 mt-3 p-2 shadow bg-base-100 w-10/10 text-center z-100">
         <RouterLink to="/" class="w-10/10 hover:bg-neutral hover:text-white" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('home')">HomePage</li></RouterLink>
         <RouterLink to="/cv" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('cv')">CV</li></RouterLink>
         <RouterLink to="/about" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('about')">About</li></RouterLink>
