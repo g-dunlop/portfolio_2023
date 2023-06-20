@@ -6,10 +6,11 @@ import Footer from './components/UI/Footer.vue'
 </script>
 
 <template>
-  <Header />
+  <Header  />
+  <hr class="border-1  border-gray-800"/>
   
   <RouterView />
- 
+  <Footer />
 </template>
 
 <style scoped>

@@ -4,7 +4,7 @@
         <h2 class="font-bold text-xl py-2 cursor-pointer hover:text-blue-500" @click="this.$router.push(`/blog/${blog.id}`)">{{ blog.title }}</h2>
         <h3>{{ blog.tagline }}</h3>
         <p><small>CREATED: {{ date }}</small></p>
-        <p v-for="tag in blog.tags" class="badge badge-primary hover:badge-accent cursor-pointer mr-2">{{ tag }}</p>
+        <p v-for="tag in blog.tags" class="badge uppercase badge-primary badge-sm hover:badge-accent cursor-pointer mr-2">{{ tag }}</p>
         <h3 class="font-bold text-sm py-2">By:  {{blog.user.username}} </h3>
        
     </div>
