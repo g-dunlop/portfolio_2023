@@ -14,3 +14,8 @@ import ('../components/projects/ProjectsList.vue'))
     <ProjectsList />
   </main>
 </template>
+
+
+<style scoped>
+
+</style>
