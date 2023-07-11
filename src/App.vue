@@ -7,11 +7,13 @@ import Footer from './components/UI/Footer.vue'
 
 <template>
   <Header  />
-  <hr class="border-1  border-gray-800"/>
+  <hr class="border-1 border-red-800"/>
   <div class="min-h-screen">
-  <RouterView />
-</div>
+    <RouterView />
+  </div>
+  
   <Footer />
+
 </template>
 
 <style scoped>

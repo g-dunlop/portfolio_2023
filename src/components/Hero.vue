@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="hero " style="background-image: url('/coding-banner.webp');">
-            <div class="hero-overlay bg-opacity-60"></div>
+            <div class="hero-overlay bg-opacity-90"></div>
                 <div class="hero-content text-center text-neutral-content">
                     <div class="max-w-md">
                         <div class="container">
@@ -43,7 +43,7 @@ body, html {
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 
   display: flex;
   justify-content: center;

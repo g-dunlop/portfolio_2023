@@ -27,10 +27,15 @@
       <div class="w-full flex justify-center my-8" v-if="blogs.length === 0">
               <Loading />
           </div>
-  <div class="w-full flex flex-col md:flex-row justify-start">
-      <div class="w-9/9 md:w-6/9 flex flex-wrap p-4">
           
-        <BlogList :blogs="blogs" />
+  <div class="w-full flex flex-col md:flex-row justify-start">
+      <div class="w-9/9 md:w-6/9 p-4" v-if="blogs.length > 0">
+        <div class="bg-red-500 p-2 w-6/9 ml-4 pl-4">
+            <h2 class="text-white font-bold tracking-wider">Posts</h2>
+        </div>
+        <div class="flex flex-wrap py-4">
+          <BlogList :blogs="blogs" />
+        </div>
       </div>
       <div v-if="blogs.length > 0" class="w-9/9 md:w-3/9 p-4 rounded-lg">
         <BlogEditorialList :blogs="blogs" />

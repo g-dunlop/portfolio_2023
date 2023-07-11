@@ -41,6 +41,9 @@ export const useBlogStore = defineStore('blog', () => {
                             created_at
                             id
                             updated_at
+                            author {
+                                username
+                            }
                             replies {
                               id
                               created_at
@@ -48,6 +51,9 @@ export const useBlogStore = defineStore('blog', () => {
                               comment
                               blog_post_id
                               updated_at
+                              author {
+                                username
+                            }
                             }
                         }
                     }

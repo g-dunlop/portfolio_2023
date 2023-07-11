@@ -1,7 +1,7 @@
 <template>
     <!-- make card component -->
     <div>
-        <div class="h-screen pt-8 px-8">
+        <div class="py-16 px-8">
             <h2 class="text-center font-bold text-3xl mb-4">Projects</h2>
             <div class="w-full flex justify-center" v-if="projects.length < 1">
                 <Loading />
