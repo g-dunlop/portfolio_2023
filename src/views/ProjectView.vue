@@ -3,12 +3,17 @@
   import { onMounted, ref } from 'vue';
   import Loading from '../components/UI/Loading.vue'
   import {useProjectsStore} from '@/stores/projects'
+  import TractorFactor from '../components/projects/TractorFactor.vue'
+  import StockTracker from '../components/projects/StockTracker.vue'
+  import MemoryGame from '../components/projects/MemoryGame.vue'
+  import VetManagement from '../components/projects/VetManagement.vue'
+
   const hasura = import.meta.env.VITE_X_HASURA_ADMIN_SECRET;
   const apiUrl = import.meta.env.VITE_HASURA_ENDPOINT;
   
   export default{
 components:{
-  Loading,
+  Loading, TractorFactor, StockTracker, MemoryGame, VetManagement
 },
   setup(){
     //get project from store.  They are already loaded in
@@ -61,35 +66,50 @@ components:{
     }
     
   }
+
+ const handleImgClick = (url) => {
+  console.log(url)
+ }
     return {
-    project, loading, fetch, Loading
+    project, loading, fetch, Loading, handleImgClick
   }
   },
 
-  
 
   mounted() {
     this.fetch()
   }
 
-  
 }
 </script>
 
 <template>
   <div>
-    <div v-if="loading">
+    <div class="w-full flex justify-center" v-if="loading">
       <Loading />
     </div>
    
-
-    <div v-if="project" class="flex w-10/10 justify-center">
+    <div v-if="project" class="flex w-10/10 justify-center py-8">
       <div class="w-8/10">
-      <h2 class="header">{{ project.name }}</h2>
+      <h1 class="header">PROJECT: {{ project.name }}</h1>
       <p class="p">{{ project.description_short }}</p>
       <p class="p">{{project.purpose}}</p>
-      <div class="w-10/10" v-html="project.read_me_html"></div>
 
+      <!-- <client-only><div class="w-10/10" v-html="project.read_me_html" /></client-only> -->
+      <div v-if="$route.params.id === '16'">
+       <TractorFactor />
+      </div>
+      <div v-if="$route.params.id === '9'">
+       <StockTracker />
+      </div>
+      <div v-if="$route.params.id === '18'">
+       <MemoryGame />
+      </div>
+      <div v-if="$route.params.id === '19'">
+       <VetManagement />
+      </div>
+      
+      
     </div>
     </div>
   </div>
@@ -98,15 +118,19 @@ components:{
 <style>
 .header{
   font-weight:bold;
-  font-size:2em;
+  font-size:3em;
 }
 .h2{
   font-weight:bold;
-  margin:8px;
+  margin-top:8px;
+  font-size:2rem;
   /* font-weight:bold; */
 }
+.h4{
+  font-weight:bold;
+}
 .p{
-  margin:8px;
+  margin-top:8px;
 }
 .ul{
   margin-top:4px;
@@ -114,9 +138,30 @@ components:{
   list-style-type:circle;
 }
 .img{
-  width:200px;
-  height:130px;
+  min-width:240px;
+  max-width:360px;
+  min-height:auto;
+  cursor: pointer;
 }
+
+.section {
+  margin-top:2rem;
+}
+
+.table {
+  width:100%;
+}
+.tr {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+}
+
+
+/* .img {
+  width:100%;
+  
+} */
 
 
 </style>

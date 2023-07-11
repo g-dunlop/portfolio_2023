@@ -36,14 +36,24 @@
 
 <script setup>
 import axios from 'axios';
-import {ref} from 'vue'
+import {ref} from 'vue';
+import {useUserStore} from '@/stores/user'
+const store = useUserStore()
 
 const email = ref()
 const password = ref()
 
 async function login () {
  console.log('welcome')
- await axios.post('.netlify/functions/login')
+ const result = await store.login(email, password)
+ console.log('Login.vue:', result)
+ if (result.status === 200) {
+    console.log('Logged in')
+ } 
+ if (result.status !== 200) {
+    console.log('Fail!')
+ }
+//  await axios.post('.netlify/functions/login')
 }
 </script>
 

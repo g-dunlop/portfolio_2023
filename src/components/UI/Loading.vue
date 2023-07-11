@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- <PulseLoader /> -->
-        <GridLoader :color="'red'" :loading="loading" />
+        <GridLoader :color="'red'"  />
     </div>
 </template>
 
