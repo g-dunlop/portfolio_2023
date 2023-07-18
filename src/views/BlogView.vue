@@ -63,6 +63,7 @@
   console.log('component fetch function')
   console.log(store)
   await store.fetchBlogs()
+  //handle error
   blogs.value = store.blogs
 }
 onMounted(() => {

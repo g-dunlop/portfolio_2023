@@ -25,7 +25,7 @@ const handler = async (event) => {
         console.log(value)
         if (error) {
             response.statusCode = 400
-            response.body = error.toString
+            response.body = error.toString()
             return response
         }
 

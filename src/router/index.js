@@ -33,6 +33,11 @@ const router = createRouter({
       component:LoginView
     },
     {
+      path: '/login/:id',
+      name: 'login2',
+      component: LoginView
+    },
+    {
       path: '/cv',
       name:'cv',
       component:CvView

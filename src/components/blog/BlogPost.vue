@@ -24,8 +24,15 @@
                 </div>
                 <button class="btn ml-8 mb-8" @click="toggleComment">Leave a Comment</button>
                 
-                <div v-if="isComment" class="w-9/10 md:w-5/10 lg:3/10 mx-8 px-4 border-2 border-gray-100 rounded-lg mb-8" >
-                    <BlogCommentForm />
+                <div v-if="isComment && user.isLoggedIn" class="w-9/10 md:w-5/10 lg:3/10 mx-8 px-4 border-2 border-gray-100 rounded-lg mb-8" >
+                    <BlogCommentForm :blogPostId="blog.id" />
+                </div>
+                <div v-if="isComment && !user.isLoggedIn">
+                    <p class="w-9/10 md:w-5/10 lg:3/10 mx-8 border-2 border-gray-100 rounded-lg mb-8">
+                        Please 
+                        <router-link :to="`/login/${blog.id}`" class="font-semibold">
+                            log in
+                        </router-link> to leave a comment</p>
                 </div>
             </div>
         </div>
@@ -34,29 +41,42 @@
 
 <script setup>
 
-import {ref, onMounted} from 'vue'
+import {ref, computed, onMounted} from 'vue'
 import {useBlogStore} from '@/stores/blog'
+import {useUserStore} from '@/stores/user'
 import { useRoute } from 'vue-router'
 import Loading from '../UI/Loading.vue'
 import BlogComments from './BlogComments.vue'
 import BlogCommentForm from './BlogCommentForm.vue'
 
 const store = useBlogStore()
+const userStore = useUserStore()
 const route = useRoute()
-const blog = ref()
+// const blog = ref()
 const isComment = ref(false)
+
+
+const user = computed({
+    get() {
+        return userStore.user
+    }
+}) 
+
+const blog = computed({
+    get() {
+        return store.blog
+    }
+})
 
 async function fetch() {
     console.log('component fetch function')
     console.log(store)
     await store.getBlogById(route.params.id)
-    blog.value = store.blog
+    // blog.value = store.blog
 }
 const toggleComment = () => {
     isComment.value = !isComment.value
 }
-
-
 
 onMounted(() => {
     fetch()

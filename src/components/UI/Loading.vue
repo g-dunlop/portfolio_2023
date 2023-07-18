@@ -1,13 +1,16 @@
 <template>
     <div>
         <!-- <PulseLoader /> -->
-        <GridLoader :color="'red'"  />
+        <GridLoader :color="'red'" :size="size.xs"  />
     </div>
 </template>
 
 <script setup>
 // import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 import GridLoader from 'vue-spinner/src/GridLoader.vue'
+const size = {
+    xs: "7px", // default value for small spinner, can be customized by passing
+}
 </script>
 
 <style>

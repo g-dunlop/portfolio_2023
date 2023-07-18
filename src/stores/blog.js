@@ -43,6 +43,7 @@ export const useBlogStore = defineStore('blog', () => {
                             updated_at
                             author {
                                 username
+                                id
                             }
                             replies {
                               id
@@ -59,7 +60,6 @@ export const useBlogStore = defineStore('blog', () => {
                     }
                 }
     `
-        
             }})
             console.log(result.data.data.blog_posts)
             this.blog = result.data.data.blog_posts[0]
@@ -103,5 +103,14 @@ export const useBlogStore = defineStore('blog', () => {
         }
     }
 
-    return {blog, blogs, fetchBlogs, getBlogById}
+    async function postComment () {
+        try {
+
+        }
+        catch (error) {
+
+        }
+    }
+
+    return {blog, blogs, fetchBlogs, getBlogById, postComment}
   })

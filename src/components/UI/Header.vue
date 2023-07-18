@@ -30,7 +30,15 @@
                 
             </div>
         </nav>
-        <RouterLink to="/login" class="btn btn-sm lg:flex md:flex hidden">Login</RouterLink>
+        <RouterLink v-if="!isLoggedIn" to="/login" class="btn btn-sm lg:flex md:flex hidden">Login</RouterLink>
+        <Button 
+            v-if="isLoggedIn" 
+            @click="logOut"  
+            class="btn btn-sm lg:flex md:flex hidden"
+        >
+            <span v-if="!loading">Log out</span>
+            <span v-if="loading"><Loading /></span>
+        </Button>
     </div>
     <ul tabindex="0" v-if="checked" class="absolute right-0 top-13 mt-3 p-2 shadow bg-base-100 w-10/10 text-center z-100">
         <RouterLink to="/" class="w-10/10 hover:bg-neutral hover:text-white" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('home')">HomePage</li></RouterLink>
@@ -42,8 +50,21 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-import {ref} from 'vue'
+import {ref, computed} from 'vue'
+import {useUserStore} from '@/stores/user'
+import { useRouter } from 'vue-router';
+import Loading from './Loading.vue'
 
+const router = useRouter()
+const store = useUserStore()
+
+const isLoggedIn = computed({
+    get() {
+        return store.user.isLoggedIn
+    }
+}) 
+
+const loading = ref(false)
 const activeLink = ref({
     about:false,
     cv:false,
@@ -65,6 +86,14 @@ const setActive = (name) => {
 }
 const setChecked = () => {
     checked.value = !checked.value
+}
+
+async function logOut () {
+    loading.value=true
+    const result = await store.logOut()
+    console.log(result)
+    loading.value=false
+    router.push('/')
 }
 </script>
 
