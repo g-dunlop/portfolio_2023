@@ -30,6 +30,7 @@
             </label>
         </div>
         <ErrorMessage v-if="error" :error="error" />
+        <SuccessMessage v-if="success" :message="'Login successful'" />
         <button class="btn mt-8" @click="login()">
             <span v-if="!loading"> Login </span> 
             <span v-if="loading"><Loading :size="'10px'"/></span>
@@ -43,6 +44,7 @@ import {ref} from 'vue';
 import {useUserStore} from '@/stores/user'
 import Loading from './UI/Loading.vue'
 import ErrorMessage from './UI/ErrorMessage.vue'
+import SuccessMessage from './UI/SuccessMessage.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -56,6 +58,7 @@ const email = ref('')
 const password = ref('')
 const loading = ref(false)
 const error=ref('')
+const success=ref(false)
 
 async function login () {
     loading.value = true
@@ -70,6 +73,7 @@ async function login () {
     loading.value = false
     if (result.status === 200) {
         console.log('Logged in')
+        success.value=true
         if(props.blogId){
             router.push(`/blog/${props.blogId}`)
         }

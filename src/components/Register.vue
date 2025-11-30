@@ -45,6 +45,7 @@
             </label>
         </div>
         <ErrorMessage v-if="error" :error="error" />
+        <SuccessMessage v-if="success" :message="'Registration successful.  Please log in to your account.'"/>
         <button class="btn mt-8" @click="register()">
             <span v-if="!loading">Register</span>
             <span v-if="loading"><Loading :size="'10px'"/></span>
@@ -59,6 +60,7 @@ import {useUserStore} from '@/stores/user'
 import ErrorMessage from './UI/ErrorMessage.vue'
 import Loading from './UI/Loading.vue'
 import { useRouter } from 'vue-router'
+import SuccessMessage from './UI/SuccessMessage.vue'
 
 const router = useRouter()
 const store = useUserStore()
@@ -67,6 +69,7 @@ const email = ref('')
 const password = ref('')
 const username = ref('')
 const error=ref('')
+const success= ref('')
 const loading = ref(false)
 
 const props = defineProps({
@@ -85,6 +88,7 @@ if (!password.value || !username.value || !email.value){
  const result = await store.register(username, email, password)
  console.log('Register.vue:', result)
  if (result.status === 200) {
+    success.value = true
     // redirect to login page
     console.log('registered!')
     if(props.blogId){
@@ -92,7 +96,6 @@ if (!password.value || !username.value || !email.value){
     } else{
         router.push('/login')
     }
-    
  } 
  if (result.status !== 200) {
     console.log('fail!')

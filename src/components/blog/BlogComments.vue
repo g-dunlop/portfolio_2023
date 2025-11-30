@@ -1,6 +1,6 @@
 <template>
-    <div v-for="comment, index in comments" class="w-8/10">
-        <div class="w-9/10 md:w-5/10 lg:3/10 mx-8 px-4 rounded-lg">
+    <div v-for="comment, index in comments" class="w-10/10 bg-gray-100">
+        <div class="w-10/10   px-4 rounded-lg">
             <div class="chat chat-start">
                 <div class="chat-header"><p class="font-semibold">{{ comment.author.username }}</p></div>
                 <div class="chat-bubble chat-bubble-warning">{{ comment.comment }}</div>
@@ -18,7 +18,7 @@
         /> &nbsp Reply</button>
 
         <div v-if="isReply && replyToShow === index">
-            <div v-if="user.isLoggedIn" class="w-9/10 md:w-5/10 lg:3/10 mx-8 px-4 border-2 border-gray-100 rounded-lg mb-8" >
+            <div v-if="user.isLoggedIn" class="w-10/10 px-4 border-2 border-gray-100 rounded-lg mb-8" >
                 <BlogCommentForm :reply="true" :comment="comment" :blogPostId="comment.blog_post_id"/>
             </div>
             <div v-if="!user.isLoggedIn">
@@ -29,7 +29,7 @@
                     to leave a reply</p>
             </div>
         </div>
-        <hr class="border-1 mb-8" />
+        <hr class="border-0 mb-8" />
     </div>
     
 </template>

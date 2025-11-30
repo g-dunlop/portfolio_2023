@@ -7,7 +7,7 @@
         <section class="section"> 
             <h2 class="h2">Screenshots</h2> 
             <p class="p">For a short video preview of the app, please visit my  <a href="https://g-dunlop.github.io/g-dunlop-portfolio-website/">portfolio site</a>:</p> 
-            <table class="table">   
+            <table class="table bg-gray-100">   
                 <tr class="tr">     
                     <td class="td">
                         <label htmlFor="my_modal_1" class=""><img class="img" alt="MemoryGame_1" src="/vetapppics/vma_1.webp"/></label>
@@ -166,7 +166,7 @@
                     <section class="section ">   
                         <h2 class="h2">Planning</h2>   
                         <p class="p">The below images demonstrate some of my planning for the MVP stage of the project.  I made use of: Class and Object Diagrams, Wireframes, a Db Table Diagram, a MSCW board and a useCase Diagram. </p>    
-                            <table class="table">     
+                            <table class="table bg-gray-100">     
                                 <tr class="tr">     
                                     <td class="td">         
                                         <label htmlFor="my_modal_10" class=""><img class="img" alt="vma_1_homepage" src="/vetapppics/class.webp"/></label>

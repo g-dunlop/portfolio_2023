@@ -1,7 +1,7 @@
 <template>
     <div class="p-2">
         <p class="mb-2"><span v-if="reply">Replying</span><span v-else>Commenting</span>  as: <b>{{user.username}}</b></p>
-        <textarea type="textarea" v-model="commentBody" class="w-full  border-1 border-grey-300 px-2" />
+        <textarea type="textarea" v-model="commentBody" class="w-full rounded-lg  border-1 border-grey-300 px-2" />
         <button class="btn my-2" @click="submitComment()"> Submit</button>
     </div>
 </template>

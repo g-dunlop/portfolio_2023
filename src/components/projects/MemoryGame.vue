@@ -8,7 +8,7 @@
         <section class="section ">  
             <h2 class="h2">Screenshots</h2> 
             
-            <table class="table">   
+            <table class="table bg-gray-100">   
                 <tr class="tr">     
                     <td class="td">
                         <label htmlFor="my_modal_1" class=""><img class="img" alt="MemoryGame_1" src="/memorygamepics/mg_1.webp"/></label>

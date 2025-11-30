@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="section "> 
+        <section class="section"> 
             <h2 class="h2">About</h2> 
             <p class="p">This was a 6-day group project completed during week 10 of the CodeClan course by Jacob, Christian and Jacob.</p> 
             <p class="p">Following the end of the 6-day project(original repo here: https://github.com/xboyjx/w10_stocks_project), I found some time later in the course to go back and re-factor a few things:</p> 
@@ -15,7 +15,7 @@
         </section>    
         <section class="section ">  
             <h2 class="h2">Screenshots</h2>   
-            <table class="table">    
+            <table class="grid grid-cols-1 lg:grid-cols-2 gap-8">    
                 <tr class="tr">     
                     <td class="td">       
                         <label htmlFor="my_modal_5" class=""><img class="img"  alt="StockTracker_1" src="/stocktrackerpics/st_1.webp"/></label>
@@ -109,7 +109,7 @@
                 <section class="section ">  
                     <h2 class="h2">Planning</h2>   
                     <p class="p">The below images demonstrate some of our planning for the MVP stage of the project.  We made use of: Class and Object Diagrams, Wireframes, Trello and a MSCW board. </p>     
-                        <table class="table">    
+                        <table class="grid grid-cols-1 lg:grid-cols-2 gap-8">    
                             <tr class="tr">     
                                 <td class="td">       
                                     <label htmlFor="my_modal_1" class=""><img class="img" alt="Screenshot 2022-05-08 at 11 23 15" src="/stocktrackerpics/MSCW.webp"/></label>     

@@ -5,9 +5,9 @@
             <h2 class=" transition-all ml-4 font-bold font-mono text-lg tracking-widest">graemedunlop.com</h2>
         </div>
         <nav class="w-7/10 hidden md:flex lg:flex justify-end">
-            <RouterLink class="link mx-2" to="/cv" :class="{active:activeLink.cv}" @click="setActive('cv')">CV</RouterLink>
-            <RouterLink class="link mx-2" to="/about"  :class="{active:activeLink.about}" @click="setActive('about')">About</RouterLink>
-            <RouterLink class="link mx-2" to="/blog"  :class="{active:activeLink.blog}" @click="setActive('blog')">Blog</RouterLink>
+            <RouterLink class="link mx-4" to="/cv" :class="{active:activeLink.cv}" @click="setActive('cv')">CV</RouterLink>
+            <RouterLink class="link mx-4" to="/about"  :class="{active:activeLink.about}" @click="setActive('about')">About</RouterLink>
+            <RouterLink class="link mx-4" to="/blog"  :class="{active:activeLink.blog}" @click="setActive('blog')">Blog</RouterLink>
         </nav>
 
         <nav class="lg:hidden md:hidden sm:flex">
