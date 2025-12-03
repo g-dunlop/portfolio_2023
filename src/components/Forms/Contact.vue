@@ -95,7 +95,7 @@ async function contact () {
         error.value = e.response.data
         console.error(e)})
     console.log('netlify function response:', result)
-    if (result.statusText) {
+    if (result.data === "OK") {
         success.value = true
         error.value = ''
         console.log('Email sent successfully')
