@@ -57,10 +57,10 @@
 
 import {ref} from 'vue'
 import {useUserStore} from '@/stores/user'
-import ErrorMessage from './UI/ErrorMessage.vue'
-import Loading from './UI/Loading.vue'
+import ErrorMessage from '../UI/ErrorMessage.vue'
+import Loading from '../UI/Loading.vue'
 import { useRouter } from 'vue-router'
-import SuccessMessage from './UI/SuccessMessage.vue'
+import SuccessMessage from '../UI/SuccessMessage.vue'
 
 const router = useRouter()
 const store = useUserStore()

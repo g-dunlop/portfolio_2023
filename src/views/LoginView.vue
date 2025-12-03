@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center mt-16">
+    <div class="flex justify-center my-16">
         <div class="bg-gray-100 p-12 text-center rounded-xl">
         <h2 class="text-center font-bold"><span v-if="!isRegister">Login</span><span v-else>Register</span> </h2>
             <div v-if="!isRegister">
@@ -16,8 +16,8 @@
 </template>
 
 <script setup>
-import Login from '../components/Login.vue'
-import Register from '../components/Register.vue'
+import Login from '../components/Forms/Login.vue'
+import Register from '../components/Forms/Register.vue'
 import {ref, onMounted} from 'vue'
 import { useRoute } from 'vue-router'
 

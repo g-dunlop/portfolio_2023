@@ -2,8 +2,8 @@
     <div :id="index+1" class="carousel-item w-full bg-gray-100 rounded" v-for="project, index in projects">
         <div class="w-full flex flex-col lg:flex-row p-2 items-center">
             
-            <div class="w-10/10 lg:w-8/10 p-8 h-full bg-white rounded ">
-                <div class="flex justify-between">
+            <div class="w-10/10 lg:w-8/10 p-8 h-full bg-white rounded order-2 lg:order-1">
+                <div class="flex justify-between ">
                     <h2 class="card-title">{{project.name}}</h2>
                     <span class="badge badge-lg border-0 text-sm bg-red-600 hover:red-800">{{project.date}}</span>
                 </div>
@@ -15,8 +15,8 @@
                     <button class="btn btn-sm" @click="navigate(project.id)">ReadMe!</button>
                 </div>
             </div>
-            <figure class="w-10/10 h-full rounded cursor-pointer">
-                <iframe class="w-full h-80"  :src="project.video_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+            <figure class="w-10/10 h-full rounded cursor-pointer order-1 lg:order-2">
+                <iframe class="w-full h-80" :src="project.video_url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
             </figure>
         </div>
     </div>

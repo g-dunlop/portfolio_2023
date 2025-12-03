@@ -42,9 +42,9 @@
 import axios from 'axios';
 import {ref} from 'vue';
 import {useUserStore} from '@/stores/user'
-import Loading from './UI/Loading.vue'
-import ErrorMessage from './UI/ErrorMessage.vue'
-import SuccessMessage from './UI/SuccessMessage.vue'
+import Loading from '../UI/Loading.vue'
+import ErrorMessage from '../UI/ErrorMessage.vue'
+import SuccessMessage from '../UI/SuccessMessage.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

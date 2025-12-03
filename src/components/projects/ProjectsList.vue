@@ -1,8 +1,8 @@
 <template>
     <!-- make card component -->
-    <div >
+    <div class="flex flex-col items-center w-10/10" >
        
-        <div class="py-16 px-8" v-if="projects">
+        <div class="w-10/10 md:w-8/10 py-16 px-8" v-if="projects">
             <h2 class="text-center font-bold text-3xl mb-12">Projects</h2>
             <div class="w-full flex justify-center" v-if="projects.length < 1">
                 <Loading />

@@ -7,7 +7,7 @@
         <nav class="w-7/10 hidden md:flex lg:flex justify-end">
             <RouterLink class="link mx-4" to="/cv" :class="{active:activeLink.cv}" @click="setActive('cv')">CV</RouterLink>
             <RouterLink class="link mx-4" to="/about"  :class="{active:activeLink.about}" @click="setActive('about')">About</RouterLink>
-            <RouterLink class="link mx-4" to="/blog"  :class="{active:activeLink.blog}" @click="setActive('blog')">Blog</RouterLink>
+            <RouterLink class="link mx-4" to="/contact"  :class="{active:activeLink.contact}" @click="setActive('contact')">Contact</RouterLink>
         </nav>
 
         <nav class="lg:hidden md:hidden sm:flex">
@@ -30,7 +30,7 @@
                 
             </div>
         </nav>
-        <RouterLink v-if="!isLoggedIn" to="/login" class="btn btn-sm lg:flex md:flex hidden">Login</RouterLink>
+        <!-- <RouterLink v-if="!isLoggedIn" to="/login" class="btn btn-sm lg:flex md:flex hidden">Login</RouterLink>
         <Button 
             v-if="isLoggedIn" 
             @click="logOut"  
@@ -38,13 +38,15 @@
         >
             <span v-if="!loading">Log out</span>
             <span v-if="loading"><Loading /></span>
-        </Button>
+        </Button> -->
     </div>
     <ul tabindex="0" v-if="checked" class="absolute right-0 top-13 mt-3 p-2 shadow bg-base-100 w-10/10 text-center z-100">
         <RouterLink to="/" class="w-10/10 hover:bg-neutral hover:text-white" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('home')">HomePage</li></RouterLink>
         <RouterLink to="/cv" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('cv')">CV</li></RouterLink>
         <RouterLink to="/about" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('about')">About</li></RouterLink>
-        <RouterLink to="/blog" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('blog')">Blog</li></RouterLink>
+        <!-- <RouterLink to="/blog" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('blog')">Blog</li></RouterLink> -->
+        <RouterLink to="/contact" ><li class="w-10/10 hover:bg-neutral hover:text-white cursor-pointer" @click="setActive('contact')">Contact</li></RouterLink>
+
     </ul>
 </template>
 
@@ -69,7 +71,8 @@ const activeLink = ref({
     about:false,
     cv:false,
     home:true,
-    blog:false
+    blog:false,
+    contact:false
 })
 const checked = ref(false)
 const setActive = (name) => {
