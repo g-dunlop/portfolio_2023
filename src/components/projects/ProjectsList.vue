@@ -1,18 +1,27 @@
 <template>
     <!-- make card component -->
-    <div>
-        <div class="py-16 px-8">
-            <h2 class="text-center font-bold text-3xl mb-4">Projects</h2>
+    <div class="flex flex-col items-center w-10/10" >
+       
+        <div class="w-10/10 md:w-8/10 py-16 px-8" v-if="projects">
+            <h2 class="text-center font-bold text-3xl mb-12">Projects</h2>
             <div class="w-full flex justify-center" v-if="projects.length < 1">
                 <Loading />
             </div>
             <div class="carousel w-10/10 " v-if="projects.length > 1" >
                 <ProjectsListItem :projects="projects" />
             </div> 
-            <div class="flex justify-center w-10/10 py-4 gap-2">
-                <a :href="`#${index+1}`" class="btn btn-xs hover:btn-accent active:" :class="[isActive[index+1] ? 'btn-accent': 'btn-neutral']" v-for="project, index in projects" @click="setActive(index+1)">{{index+1}}</a> 
+            <div class="flex justify-center w-10/10 pt-8 gap-2">
+                <a 
+                :href="`#${index+1}`" 
+                class="btn btn-xs hover:btn-accent active:" 
+                :class="[isActive[index+1] ? 'btn-accent': 'btn-neutral']" 
+                v-for="project, index in projects" 
+                @click="setActive(index+1)">
+                    {{index+1}}
+            </a> 
             </div>
         </div>
+ 
     </div>
 </template>
 

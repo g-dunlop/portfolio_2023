@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProjectView from '../views/ProjectView.vue'
 import LoginView from '../views/LoginView.vue'
+import ContactView from '../views/ContactView.vue'
 import CvView from '../views/CvView.vue'
 import BlogView from '../views/BlogView.vue'
 import BlogPost from '../components/blog/BlogPost.vue'
@@ -27,26 +28,36 @@ const router = createRouter({
       name: 'projects',
       component: ProjectView
     },
-    {
-      path: '/login',
-      name:'login',
-      component:LoginView
-    },
+    // {
+    //   path: '/login',
+    //   name:'login',
+    //   component:LoginView
+    // },
+    // {
+    //   path: '/login/:id',
+    //   name: 'login2',
+    //   component: LoginView
+    // },
     {
       path: '/cv',
       name:'cv',
       component:CvView
     },
+    // {
+    //   path: '/blog',
+    //   name:'blog',
+    //   component:BlogView
+    // },
     {
-      path: '/blog',
-      name:'blog',
-      component:BlogView
+      path: '/contact',
+      name:'contact',
+      component:ContactView
     },
-    {
-    path: '/blog/:id',
-    name: 'blogpost',
-    component: BlogPost
-    },
+    // {
+    // path: '/blog/:id',
+    // name: 'blogpost',
+    // component: BlogPost
+    // },
   ]
 })
 

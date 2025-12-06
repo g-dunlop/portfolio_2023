@@ -90,9 +90,9 @@ components:{
     </div>
    
     <div v-if="project" class="flex w-10/10 justify-center py-8">
-      <div class="w-8/10">
-      <h1 class="header">PROJECT: {{ project.name }}</h1>
-      <p class="p">{{ project.description_short }}</p>
+      <div class="w-8/10 md:w-6/10">
+      <h1 class="header">{{ project.name }}</h1>
+      <p class="p font-italic">{{ project.description_short }}</p>
       <p class="p">{{project.purpose}}</p>
 
       <!-- <client-only><div class="w-10/10" v-html="project.read_me_html" /></client-only> -->
@@ -122,7 +122,7 @@ components:{
 }
 .h2{
   font-weight:bold;
-  margin-top:8px;
+  margin-top:6px;
   font-size:2rem;
   /* font-weight:bold; */
 }
@@ -130,7 +130,7 @@ components:{
   font-weight:bold;
 }
 .p{
-  margin-top:8px;
+  margin-top:6px;
 }
 .ul{
   margin-top:4px;

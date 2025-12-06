@@ -8,7 +8,7 @@
       </section>  
       <section class="section ">  
         <h2 class="h2">Screenshots</h2>   
-        <table class="table">    
+        <table class="table bg-gray-100">    
           <tr class="tr">     
             <td class="td">       
               <label htmlFor="my_modal_1" class=""><img class="img" alt="tf_1" src="/tractorfactorpics/tf_1.webp"></label>
@@ -130,7 +130,7 @@
           <section class="section">  
             <h2 class="h2">Planning</h2>  
             <p class="p">The below images demonstrate some of our planning for the MVP stage of the project.  We made use of a MSCW board, class diagrams and wireframes</p>     
-            <table class="table">    
+            <table class="table bg-gray-100">    
               <tr class="tr">     
                 <td class="td">      
                   <label htmlFor="my_modal_7" class=""><img id="1" class="img" alt="MSCW" src="/tractorfactorpics/MSCW.webp" /> </label>

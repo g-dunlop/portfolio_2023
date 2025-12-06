@@ -12,13 +12,14 @@ export const useUserStore = defineStore('user', () => {
         jwt:'',
         role:'',
         first_name:'',
-        last_name:''    })
+        last_name:'',
+        isLoggedIn:false    })
 
     async function register (username, email, password) {
         try {
             const usernameTrim = username.value.trim().toLowerCase()
             const emailTrim = email.value.trim().toLowerCase()
-            const result = await axios.post('.netlify/functions/register', {
+            const result = await axios.post('/.netlify/functions/register', {
                 username: usernameTrim, email: emailTrim, password: password.value
             })
             console.log('user.js:', result)
@@ -33,7 +34,7 @@ export const useUserStore = defineStore('user', () => {
     async function login (email, password) {
         try {
             const emailTrim = email.value.trim().toLowerCase()
-            const result = await axios.post('.netlify/functions/login', {
+            const result = await axios.post('/.netlify/functions/login', {
                 email: emailTrim, password: password.value
             })
             console.log('user.js:', result)
@@ -53,8 +54,19 @@ export const useUserStore = defineStore('user', () => {
         user.jwt = userr.token
         user.email = userr.email
         user.role = userr.role
+        user.isLoggedIn = true
     }
 
-    return {user, register, login, setUser}
+    function logOut() {
+        user.id='',
+        user.username='',
+        user.jwt='',
+        user.role='',
+        user.first_name='',
+        user.last_name='',
+        user.isLoggedIn=false  
+    }
+
+    return {user, register, login, logOut}
 
 })

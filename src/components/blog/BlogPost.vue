@@ -13,7 +13,8 @@
             <div v-html="blog.content" class="p-12" />
 
             <hr class="border-1 border-gray-200" />
-            <div >
+            <div class="flex justify-center w-full">
+                <div class="w-8/10 lg:w-5/10">
                 <h2 class="text-2xl font-semibold mb-2 p-8">Comments</h2>
                 <!-- <hr class="border-1 mb-8" /> -->
                 <div v-if="blog.comments.length > 0">
@@ -22,41 +23,62 @@
                 <div v-if="blog.comments.length === 0" class="pl-8 pb-8">
                     Be the first to comment
                 </div>
-                <button class="btn ml-8 mb-8" @click="toggleComment">Leave a Comment</button>
+                <button class="btn mb-8" @click="toggleComment">Leave a Comment</button>
                 
-                <div v-if="isComment" class="w-9/10 md:w-5/10 lg:3/10 mx-8 px-4 border-2 border-gray-100 rounded-lg mb-8" >
-                    <BlogCommentForm />
+                <div v-if="isComment && user.isLoggedIn" class="w-10/10 px-4 border-2 bg-gray-100 rounded-lg mb-8" >
+                    <BlogCommentForm :blogPostId="blog.id" />
+                </div>
+                <div v-if="isComment && !user.isLoggedIn">
+                    <p class="w-9/10 md:w-5/10 lg:3/10 mx-8 border-2 border-gray-100 rounded-lg mb-8">
+                        Please 
+                        <router-link :to="`/login/${blog.id}`" class="font-semibold">
+                            log in
+                        </router-link> to leave a comment</p>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </template>
 
 <script setup>
 
-import {ref, onMounted} from 'vue'
+import {ref, computed, onMounted} from 'vue'
 import {useBlogStore} from '@/stores/blog'
+import {useUserStore} from '@/stores/user'
 import { useRoute } from 'vue-router'
 import Loading from '../UI/Loading.vue'
 import BlogComments from './BlogComments.vue'
 import BlogCommentForm from './BlogCommentForm.vue'
 
 const store = useBlogStore()
+const userStore = useUserStore()
 const route = useRoute()
-const blog = ref()
+// const blog = ref()
 const isComment = ref(false)
+
+
+const user = computed({
+    get() {
+        return userStore.user
+    }
+}) 
+
+const blog = computed({
+    get() {
+        return store.blog
+    }
+})
 
 async function fetch() {
     console.log('component fetch function')
     console.log(store)
     await store.getBlogById(route.params.id)
-    blog.value = store.blog
+    // blog.value = store.blog
 }
 const toggleComment = () => {
     isComment.value = !isComment.value
 }
-
-
 
 onMounted(() => {
     fetch()
